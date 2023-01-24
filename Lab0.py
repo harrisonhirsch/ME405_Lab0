@@ -13,7 +13,6 @@ Created on Tue Jan 24 2023
 """
 import time
 import utime
-import math
 import pyb
 
 def led_setup ():
@@ -29,8 +28,9 @@ def led_setup ():
     
 def led_brightness (current_time):
     ''' @brief                                  Calculates the brightness value
-        @details                                This function sets up the timer channel
-        @return									Returns timer/Pin channel for the LED to be called later on to change the brightness of the LED
+        @details                                This function calculates the required brightness value based upon the current time.
+        @param                                  The current time recorded since initializing
+        @return									Returns a value between 0 and 100 to be put to alter the PWM signal of an LED
     '''
     return 100*((current_time/5000) % 1.0)
    
